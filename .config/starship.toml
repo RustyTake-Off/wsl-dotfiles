@@ -4,7 +4,8 @@
 # │ ╓─┐ ╔╝  │  ║  │  ║ │  ║  https://github.com/RustyTake-Off
 # │ ║ │ ╚╗  │  ║  │  ╚═╛  ║
 # └─╜ └──╜  └──╜  └───────╜
-# Starship config.
+# Starship config
+# Starship docs: https://starship.rs
 # Unicode characters: https://unicodes.jessetane.com
 
 "$schema" = 'https://starship.rs/config-schema.json'

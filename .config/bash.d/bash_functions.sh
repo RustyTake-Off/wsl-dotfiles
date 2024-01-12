@@ -5,7 +5,8 @@
 # │ ╓─┐ ╔╝  │  ║  │  ║ │  ║  https://github.com/RustyTake-Off
 # │ ║ │ ╚╗  │  ║  │  ╚═╛  ║
 # └─╜ └──╜  └──╜  └───────╜
-# Bash functions executed from ~/.bashrc
+# Bash functions
+# File executed from ~/.bashrc
 
 rebash() {
 	# Reload bashrc

@@ -5,7 +5,8 @@
 # │ ╓─┐ ╔╝  │  ║  │  ║ │  ║  https://github.com/RustyTake-Off
 # │ ║ │ ╚╗  │  ║  │  ╚═╛  ║
 # └─╜ └──╜  └──╜  └───────╜
-# Bash aliases executed from ~/.bashrc
+# Bash aliases
+# File executed from ~/.bashrc
 
 # Movement
 alias cd......="cd ../../../../../.."
