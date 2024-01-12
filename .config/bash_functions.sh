@@ -40,7 +40,7 @@ extract() {
 	done
 }
 
-prepkeys() {
+permkeys() {
 	# Removes read, write and execute permissions from group and others
 
 	find "$HOME/.ssh" -maxdepth 1 -type f -name '*.pub' | while read -r file; do

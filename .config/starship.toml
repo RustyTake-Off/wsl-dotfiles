@@ -11,17 +11,18 @@
 
 # Set prompt format
 format = '$os$username@$hostname$directory$python$nodejs$golang$rust$kubernetes$terraform$azure$aws$gcloud$git_branch$git_status'
-
 add_newline = false
 
 # Change some of the colors
 palette = 'custom'
+
 [palettes.custom]
 blue = '#4285f4'
 orange = '#ffa700'
 pink = '#ff71ce'
 purple = '#8b00fd'
 
+# Base prompt
 [character]
 success_symbol = ''
 error_symbol = ''
@@ -58,6 +59,7 @@ read_only_style = 'red'
 style = 'cyan bold'
 disabled = false
 
+# Git prompt
 [git_branch]
 format = '\[ [$branch]($style) '
 truncation_symbol = '…/'
@@ -80,7 +82,7 @@ up_to_date = ''
 style = 'green bold'
 disabled = false
 
-# Tools and languages
+# Tools and languages prompts
 [python]
 format = '\[[$symbol]($style)\] '
 pyenv_version_name = true

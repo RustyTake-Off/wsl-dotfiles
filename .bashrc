@@ -23,7 +23,6 @@ export EDITOR="vim"
 # Set vim as MANPAGER: https://zameermanji.com/blog/2012/12/30/using-vim-as-manpager/
 export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
 
-
 # Set shell optional behavior: https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html
 shopt -s autocd
 shopt -s cdspell
@@ -58,10 +57,6 @@ set -o histexpand
 set -o history
 set -o interactive-comments
 set -o monitor
-
-# PATH
-[ -d "$HOME/.bin" ] && PATH="$PATH:$HOME/.bin"
-[ -d "$HOME/.local/bin" ] && PATH="$PATH:$HOME/.local/bin"
 
 # Load other bash config files
 bash_config_files="aliases functions"

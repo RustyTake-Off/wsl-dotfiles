@@ -7,23 +7,6 @@
 # └─╜ └──╜  └──╜  └───────╜
 # WSL setup script
 
-
-
-set-key-prereqs() {
-    # Copies ssh keys from the Windows host to the WSL and sets permissions
-    # (removes - read, write and execute from group and others) on them
-    # so they can be added to SSH agent for easier use
-
-    pass
-    # get all keys on WS
-    # check their hashes
-    # get all keys on WSL
-    # check their hashes
-    # compare hashes
-    # if files is no on WSL copy it
-    # if the hashes are different replace file
-}
-
 get-apt-apps() {
     # Install some prerequisite and utility apps
 
