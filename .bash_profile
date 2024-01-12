@@ -5,12 +5,12 @@
 # │ ╓─┐ ╔╝  │  ║  │  ║ │  ║  https://github.com/RustyTake-Off
 # │ ║ │ ╚╗  │  ║  │  ╚═╛  ║
 # └─╜ └──╜  └──╜  └───────╜
-# Bash profile config.
-# ~/.bash_profile: executed by the command interpreter for login shells.
+# Bash profile config
+# Executed by the command interpreter for login shells
 
-# Init bashrc
+# Loads bashrc
 if [ -n "$BASH_VERSION" ]; then
   if [ -f "$HOME/.bashrc" ]; then
-    . "$HOME/.bashrc"
+    source "$HOME/.bashrc"
   fi
 fi

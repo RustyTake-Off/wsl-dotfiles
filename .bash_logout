@@ -5,8 +5,8 @@
 # │ ╓─┐ ╔╝  │  ║  │  ║ │  ║  https://github.com/RustyTake-Off
 # │ ║ │ ╚╗  │  ║  │  ╚═╛  ║
 # └─╜ └──╜  └──╜  └───────╜
-# Bash logout config.
-# ~/.bash_logout: executed by bash when login shell exits.
+# Bash logout config
+# Executed by bash when login shell exits
 
 # Clear console
 if [ "$SHLVL" = 1 ]; then
