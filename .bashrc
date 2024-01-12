@@ -20,13 +20,11 @@ export HISTIGNORE="&:ls:la:ll:cd:exit:pwd:cls:[ ]*"
 export TERM="xterm-256color"
 export EDITOR="vim"
 
-# Set vim as MANPAGER
-# https://zameermanji.com/blog/2012/12/30/using-vim-as-manpager/
+# Set vim as MANPAGER: https://zameermanji.com/blog/2012/12/30/using-vim-as-manpager/
 export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
-# export MANPAGER="less -X"
 
-# Set shell optional behavior
-# https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html
+
+# Set shell optional behavior: https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html
 shopt -s autocd
 shopt -s cdspell
 shopt -s checkhash
@@ -52,8 +50,7 @@ shopt -s promptvars
 shopt -s sourcepath
 shopt -s xpg_echo
 
-# Set shell options
-# https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
+# Set shell options: https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
 set -o braceexpand
 set -o emacs
 set -o hashall
@@ -63,20 +60,15 @@ set -o interactive-comments
 set -o monitor
 
 # PATH
-if [ -d "$HOME/.bin" ]; then
-  PATH="$PATH:$HOME/.bin"
-fi
-
-if [ -d "$HOME/.local/bin" ]; then
-  PATH="$PATH:$HOME/.local/bin"
-fi
+[ -d "$HOME/.bin" ] && PATH="$PATH:$HOME/.bin"
+[ -d "$HOME/.local/bin" ] && PATH="$PATH:$HOME/.local/bin"
 
 # Load other bash config files
 bash_config_files="aliases functions"
 if [ -d "$HOME/.config" ]; then
   for file in $bash_config_files; do
     if [ -f "$HOME/.config/bash_$file.sh" ]; then
-      . "$HOME/.config/bash_$file.sh"
+      source "$HOME/.config/bash_$file.sh"
     fi
   done
 fi
@@ -99,16 +91,29 @@ unset bash_config_files
 unset keys key file
 
 # Inits
-if [ -f /usr/local/bin/starship ]; then
-  eval "$(starship init bash)"
-fi
+[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && source "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"
+[ -f "$(command -v starship)" ] && eval "$(starship init bash)"
+[ -f "$(command -v zoxide)" ] && eval "$(zoxide init bash)"
+[ -f "$(command -v brew)" ] && eval "$(brew shellenv)"
 
-if [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
-
+# Completions
 if [ -f /usr/share/bash-completion/bash_completion ]; then
-  . "/usr/share/bash-completion/bash_completion"
+  source "/usr/share/bash-completion/bash_completion"
 elif [ -f /etc/bash_completion ]; then
-  . "/etc/bash_completion"
+  source "/etc/bash_completion"
+fi
+
+if [ -f "$(command -v brew)" ]; then
+  HOMEBREW_PREFIX="$(brew --prefix)"
+  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+  else
+    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+      [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+    done
+  fi
+fi
+
+if [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ]; then
+  source "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm"
 fi
