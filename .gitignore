@@ -1,0 +1,17 @@
+# Ignore everything
+/*
+
+# Except
+!/.config/aliases.sh
+!/.config/functions.sh
+!/.config/wslup.sh
+!/.config/starship.toml
+!/.bash_logout
+!/.bash_profile
+!/.bashrc
+!/.gitconfig
+!/.gitignore
+!/.hushlogin
+!/.inputrc
+!/LICENSE
+!/README.md

@@ -7,6 +7,13 @@
 # └─╜ └──╜  └──╜  └───────╜
 # WSL setup script
 
+# Repository      -   "https://github.com/RustyTake-Off/wsl-dotfiles",
+# Config file     -   "https://github.com/RustyTake-Off/wsl-dotfiles/blob/main/.config/config.json",
+# Script file     -   "https://github.com/RustyTake-Off/wsl-dotfiles/blob/main/.config/wslup.sh"
+
+# ================================================================================
+# Main functions
+
 get-help() {
   # Help message
 
@@ -18,18 +25,19 @@ get-apt-apps() {
 
   sudo apt update && sudo apt upgrade -y
 
-  sudo apt install -y
-    apt-transport-https\
-    build-essential\
-    ca-certificates\
-    software-properties-common\
-    curl\
-    gnupg\
-    gpg\
-    wget\
-    jq\
-    fzf\
-    ripgrep\
+  sudo apt install -y \
+    apt-transport-https \
+    build-essential \
+    ca-certificates \
+    software-properties-common \
+    curl \
+    gnupg \
+    gpg \
+    wget \
+    tree \
+    jq \
+    fzf \
+    ripgrep \
     zoxide
 
   if [ ! "$(command -v az)" ]; then
@@ -52,24 +60,22 @@ get-brew-apps() {
 
   get-brew
 
-#   brew_apps=(
-#   "ansible"
-#   "azcopy"
-#   "helm"
-#   "k9s"
-#   "kubectl"
-#   "nvm"
-#   "terragrunt"
-#   "tfenv"
-#   )
+  if [ ! "$(command -v brew)" ]; then
+    command brew install \
+      ansible \
+      azcopy \
+      kubectl \
+      helm \
+      k9s \
+      nvm \
+      tfenv \
+      terragrunt \
+      entr
+  fi
+}
 
-#   for app in "${brew_apps[@]}"; do
-#     if [ ! "$(command brew list --versions "$app")" ]; then
-#       command brew install "$app"
-#       echo "Installing $app..."
-#     else
-#       command brew upgrade "$app"
-#       echo "Updating $app..."
-#     fi
-#   done
+set-dotfiles() {
+  # Invokes the Dotfiles setup script
+
+pass
 }

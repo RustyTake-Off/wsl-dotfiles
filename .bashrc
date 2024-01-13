@@ -59,10 +59,10 @@ set -o monitor
 
 # Load other bash config files
 bash_config_files="aliases functions"
-if [ -d "$HOME/.config" ] && [ -d "$HOME/.config/bash.d" ]; then
+if [ -d "$HOME/.config" ]; then
   for file in $bash_config_files; do
-    if [ -f "$HOME/.config/bash.d/bash_$file.sh" ]; then
-      source "$HOME/.config/bash.d/bash_$file.sh"
+    if [ -f "$HOME/.config/$file.sh" ]; then
+      source "$HOME/.config/$file.sh"
     fi
   done
 fi
