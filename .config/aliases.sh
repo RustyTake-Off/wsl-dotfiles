@@ -19,8 +19,10 @@ alias hm="cd ~"
 alias hpr="cd ~/pr"
 alias hwk="cd ~/wk"
 
-# To work with dotfiles in $HOME
-alias dot='git --git-dir="$HOME\.dotfiles" --work-tree="$HOME"'
+# To work with dotfiles in $HOME and setup scripts
+alias dot='git --git-dir="$HOME/.dotfiles" --work-tree="$HOME"'
+alias wslup=". \$HOME/.local/bin/use-wslup.sh"
+alias setdots=". \$HOME/.local/bin/set-dotfiles.sh"
 
 # Files manipulation
 alias cp="cp -vi"

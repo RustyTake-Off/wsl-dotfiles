@@ -13,7 +13,20 @@
 # ================================================================================
 # Main variables
 
-REPO_URL="https://github.com/RustyTake-Off/wsl-dotfiles.git"
+# REPO_URL="https://github.com/RustyTake-Off/wsl-dotfiles.git"
+
+# ================================================================================
+# Miscellaneous code
+
+if [ ! -d "$HOME/pr" ]; then
+  command mkdir "$HOME/pr"
+  echo "Creating 'personal' directory"
+fi
+
+if [ ! -d "$HOME/wk" ]; then
+  command mkdir "$HOME/wk"
+  echo "Creating 'work' directory"
+fi
 
 # ================================================================================
 # Main functions
@@ -21,7 +34,12 @@ REPO_URL="https://github.com/RustyTake-Off/wsl-dotfiles.git"
 get-help() {
   # Help message
 
-  echo "Help message"
+  echo "Available commands:"
+  echo "  -h  | --help            - Prints help message"
+  echo "  -a  | --apt-apps        - Installs apt applications"
+  echo "  -b  | --brew            - Installs homebrew"
+  echo "  -ba | --brew-apps       - Installs brew applications"
+  echo "  -d  | --dotfiles        - Invokes Dotfiles setup script"
 }
 
 get-apt-apps() {
@@ -85,20 +103,29 @@ set-dotfiles() {
   if [ -x "$HOME/.local/bin/set-dotfiles.sh" ]; then
     source "$HOME/.local/bin/set-dotfiles.sh"
   else
-    command curl -fsLS
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/RustyTake-Off/wsl-dotfiles/main/.local/bin/set-dotfiles.sh)"
   fi
   echo "Invoke complete!"
 }
 
-# ================================================================================
-# Miscellaneous code
-
-if [ ! -d "$HOME/pr" ]; then
-  command mkdir "$HOME/pr"
-  echo "Creating 'personal' directory"
-fi
-
-if [ ! -d "$HOME/wk" ]; then
-  command mkdir "$HOME/wk"
-  echo "Creating 'work' directory"
-fi
+# Switch with possible commands
+case "$1" in
+  -h|--help)
+    get-help
+    ;;
+  -a|--apt-apps)
+    get-apt-apps
+    ;;
+  -b|--brew)
+    get-brew
+    ;;
+  -ba|--brew-apps)
+    get-brew-apps
+    ;;
+  -d|--dotfiles)
+    set-dotfiles
+    ;;
+  *)
+    get-help
+    ;;
+esac
