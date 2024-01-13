@@ -27,7 +27,3 @@
 
 [merge]
     log = true
-
-[alias]
-    s = status --short
-    st = status --short
