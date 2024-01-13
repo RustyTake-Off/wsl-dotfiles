@@ -57,6 +57,9 @@ set -o history
 set -o interactive-comments
 set -o monitor
 
+# PATH
+[ -d  "$HOME/.local/bin" ] && PATH="$PATH:$HOME/.local/bin"
+
 # Load other bash config files
 bash_config_files="aliases functions"
 if [ -d "$HOME/.config" ]; then

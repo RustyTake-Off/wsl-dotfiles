@@ -16,8 +16,11 @@ alias cd...="cd ../../.."
 alias cd..="cd ../.."
 alias cd.="cd .."
 alias hm="cd ~"
-alias pr="cd ~/pr"
-alias wk="cd ~/wk"
+alias hpr="cd ~/pr"
+alias hwk="cd ~/wk"
+
+# To work with dotfiles in $HOME
+alias dot='git --git-dir="$HOME\.dotfiles" --work-tree="$HOME"'
 
 # Files manipulation
 alias cp="cp -vi"
@@ -25,7 +28,7 @@ alias mkdir="mkdir -vp"
 alias mv="mv -vi"
 alias rm="rm -vI"
 
-# Misc
+# Better built-in commands
 alias sup="sudo apt update"
 alias supup="sudo apt update && sudo apt upgrade -y"
 alias brup="brew upgrade"
@@ -52,7 +55,7 @@ alias psmem="ps auxf | sort -nr -k 4"
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias locip="sudo ifconfig | grep -Eo 'inet (addr:)?([0-9]*\\.){3}[0-9]*' | grep -Eo '([0-9]*\\.){3}[0-9]*' | grep -v '127.0.0.1'"
 
-# Apps
+# Git
 alias g="git"
 alias gi="git init"
 alias gcl="git clone"
@@ -64,6 +67,7 @@ alias gpll="git pull"
 alias gpsh="git push"
 alias gchb="git checkout -b"
 
+# Python
 alias py="python3"
 alias pysetup="python3 -m venv .venv && source .venv/bin/activate"
 alias pysetreq="pip freeze > requirements.txt"
@@ -71,6 +75,7 @@ alias pygetreq="pip install -r requirements.txt"
 alias pyup="source .venv/bin/activate"
 alias pydown="deactivate"
 
+# Misc
 alias k="kubectl"
 alias h="helm"
 alias tf="terraform"

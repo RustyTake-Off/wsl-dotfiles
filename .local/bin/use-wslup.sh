@@ -8,8 +8,12 @@
 # WSL setup script
 
 # Repository      -   "https://github.com/RustyTake-Off/wsl-dotfiles",
-# Config file     -   "https://github.com/RustyTake-Off/wsl-dotfiles/blob/main/.config/config.json",
-# Script file     -   "https://github.com/RustyTake-Off/wsl-dotfiles/blob/main/.config/wslup.sh"
+# Script file     -   "https://github.com/RustyTake-Off/wsl-dotfiles/blob/main/.local/bin/use-wslup.sh"
+
+# ================================================================================
+# Main variables
+
+REPO_URL="https://github.com/RustyTake-Off/wsl-dotfiles.git"
 
 # ================================================================================
 # Main functions
@@ -17,7 +21,7 @@
 get-help() {
   # Help message
 
-  pass
+  echo "Help message"
 }
 
 get-apt-apps() {
@@ -77,5 +81,24 @@ get-brew-apps() {
 set-dotfiles() {
   # Invokes the Dotfiles setup script
 
-pass
+  echo "Invoking Dotfiles setup script..."
+  if [ -x "$HOME/.local/bin/set-dotfiles.sh" ]; then
+    source "$HOME/.local/bin/set-dotfiles.sh"
+  else
+    command curl -fsLS
+  fi
+  echo "Invoke complete!"
 }
+
+# ================================================================================
+# Miscellaneous code
+
+if [ ! -d "$HOME/pr" ]; then
+  command mkdir "$HOME/pr"
+  echo "Creating 'personal' directory"
+fi
+
+if [ ! -d "$HOME/wk" ]; then
+  command mkdir "$HOME/wk"
+  echo "Creating 'work' directory"
+fi

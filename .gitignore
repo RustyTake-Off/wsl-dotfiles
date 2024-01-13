@@ -3,6 +3,7 @@
 
 # Except
 !.config/
+!.local/
 !.bash_logout
 !.bash_profile
 !.bashrc
