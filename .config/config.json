@@ -1,0 +1,30 @@
+{
+    "apps": {
+        "apt": [
+            "apt-transport-https",
+            "build-essential",
+            "ca-certificates",
+            "software-properties-common",
+            "curl",
+            "gnupg",
+            "gpg",
+            "wget",
+            "tree",
+            "jq",
+            "fzf",
+            "ripgrep",
+            "zoxide"
+        ],
+        "brew": [
+            "ansible",
+            "azcopy",
+            "kubectl",
+            "helm",
+            "k9s",
+            "nvm",
+            "tfenv",
+            "terragrunt",
+            "entr"
+        ]
+    }
+}
