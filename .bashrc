@@ -88,10 +88,10 @@ unset bash_config_files
 unset keys key file
 
 # Inits
+[ -f "$(command -v /home/linuxbrew/.linuxbrew/bin/brew)" ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && source "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"
 [ -f "$(command -v starship)" ] && eval "$(starship init bash)"
 [ -f "$(command -v zoxide)" ] && eval "$(zoxide init bash)"
-[ -f "$(command -v brew)" ] && eval "$(brew shellenv)"
 
 # Completions
 if [ -f /usr/share/bash-completion/bash_completion ]; then
@@ -100,7 +100,7 @@ elif [ -f /etc/bash_completion ]; then
   source "/etc/bash_completion"
 fi
 
-if [ -f "$(command -v brew)" ]; then
+if [ -f "$(command -v /home/linuxbrew/.linuxbrew/bin/brew)" ]; then
   HOMEBREW_PREFIX="$(brew --prefix)"
   if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
     source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
