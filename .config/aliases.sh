@@ -78,7 +78,7 @@ alias pyup="source .venv/bin/activate"
 alias pydown="deactivate"
 alias pipi="pip install"
 alias pipu="pip install --upgrade"
-alias pipuall="pip freeze --local | cut -d = -f 1  | xargs -n1 pip install --upgrade" # for upgradeing all pkgs
+alias pipuall="pip freeze --local | cut -d = -f 1  | xargs -n1 pip install --upgrade" # for upgrading all packages
 
 # Misc
 alias k="kubectl"
