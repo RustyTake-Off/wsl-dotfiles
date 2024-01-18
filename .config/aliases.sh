@@ -41,10 +41,10 @@ alias cls="clear"
 alias ls="ls --color=always --group-directories-first"
 alias la="ls -a --color=always --group-directories-first"
 alias ll="ls -al --color=always --group-directories-first"
-
 alias diff="diff --color=auto"
 alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
+
 alias fgrep="fgrep --color=auto"
 
 alias df="df -h"
@@ -76,6 +76,9 @@ alias pysetreq="pip freeze > requirements.txt"
 alias pygetreq="pip install -r requirements.txt"
 alias pyup="source .venv/bin/activate"
 alias pydown="deactivate"
+alias pipi="pip install"
+alias pipu="pip install --upgrade"
+alias pipuall="pip freeze --local | cut -d = -f 1  | xargs -n1 pip install --upgrade" # for upgradeing all pkgs
 
 # Misc
 alias k="kubectl"
