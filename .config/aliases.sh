@@ -78,13 +78,12 @@ alias gchb="git checkout -b"
 # Python
 alias py="python3"
 alias pysetup="python3 -m venv .venv && source .venv/bin/activate"
-alias pysetreq="pip freeze > requirements.txt"
-alias pygetreq="pip install -r requirements.txt"
+alias pysetreq="pip3 freeze > requirements.txt"
+alias pygetreq="pip3 install -r requirements.txt"
 alias pyup="source .venv/bin/activate"
 alias pydown="deactivate"
-alias pipi="pip install"
-alias pipu="pip install --upgrade"
-alias pipuall="pip freeze --local | cut -d = -f 1  | xargs -n1 pip install --upgrade" # for upgrading all packages
+alias pipi="pip3 install --upgrade"
+alias pipuall="pip3 freeze --local | cut -d = -f 1  | xargs -n1 pip3 install --upgrade" # for upgrading all packages
 
 # Misc
 alias k="kubectl"
