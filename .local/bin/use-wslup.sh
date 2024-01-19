@@ -31,7 +31,7 @@ fi
 # ================================================================================
 # Main functions
 
-get-help() {
+function get_help() {
   # Help message
 
   echo "Available commands:"
@@ -42,7 +42,7 @@ get-help() {
   echo "  -d  | --dotfiles        - Invokes Dotfiles setup script"
 }
 
-get-apt-apps() {
+function get_apt_apps() {
   # Install some prerequisite and utility apps
 
   sudo apt update && sudo apt upgrade -y
@@ -56,28 +56,39 @@ get-apt-apps() {
     gnupg \
     gpg \
     wget \
+    python3-venv \
+    python3-pip \
     tree \
     jq \
     fzf \
     ripgrep \
     zoxide
 
+  # Install azure cli
   if [ ! "$(command -v az)" ]; then
+    echo "Installing Azure cli..."
     curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+  fi
+
+  # Install azure developer cli
+  if [ ! "$(command -v azd)" ]; then
+    echo "Installing Azure Develope cli..."
+    curl -fsSL https://aka.ms/install-azd.sh | bash
   fi
 }
 
-get-brew() {
+function get_brew() {
   # Install homebrew if not installed
 
   if [ ! "$(command -v brew)" ]; then
+    echo "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   else
     echo "Homebrew is already installed!"
   fi
 }
 
-get-brew-apps() {
+function get_brew_apps() {
   # Check if homebrew is installed, install if not and install brew apps
 
   get-brew
@@ -92,11 +103,12 @@ get-brew-apps() {
       nvm \
       tfenv \
       terragrunt \
+      tlrc \
       entr
   fi
 }
 
-set-dotfiles() {
+function set_dotfiles() {
   # Invokes the Dotfiles setup script
 
   echo "Invoking Dotfiles setup script..."
@@ -111,21 +123,21 @@ set-dotfiles() {
 # Switch with possible commands
 case "$1" in
   -h|--help)
-    get-help
+    get_help
     ;;
   -a|--apt-apps)
-    get-apt-apps
+    get_apt_apps
     ;;
   -b|--brew)
-    get-brew
+    get_brew
     ;;
   -ba|--brew-apps)
-    get-brew-apps
+    get_brew_apps
     ;;
   -d|--dotfiles)
-    set-dotfiles
+    set_dotfiles
     ;;
   *)
-    get-help
+    get_help
     ;;
 esac

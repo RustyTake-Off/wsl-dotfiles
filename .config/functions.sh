@@ -8,7 +8,7 @@
 # Bash functions
 # File executed from ~/.bashrc
 
-rebash() {
+function rebash() {
   # Reload bashrc
 
   if [ -f "$HOME/.bashrc" ]; then
@@ -16,7 +16,7 @@ rebash() {
   fi
 }
 
-extract() {
+function extract() {
   # Extracts any archive(s)
 
   for archive in "$@"; do
@@ -41,7 +41,7 @@ extract() {
   done
 }
 
-permkeys() {
+function permkeys() {
   # Removes read, write and execute permissions from group and others
 
   find "$HOME/.ssh" -maxdepth 1 -type f -name '*.pub' | while read -r file; do

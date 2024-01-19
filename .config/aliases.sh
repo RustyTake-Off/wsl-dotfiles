@@ -19,10 +19,15 @@ alias hm="cd ~"
 alias hpr="cd ~/pr"
 alias hwk="cd ~/wk"
 
+# Alias for opening windows explorer
+if uname -r | grep -q "WSL2"; then
+  alias open="explorer.exe"
+fi
+
 # To work with dotfiles in $HOME and setup scripts
 alias dot='git --git-dir="$HOME/.dotfiles" --work-tree="$HOME"'
-alias wslup=". \$HOME/.local/bin/use-wslup.sh"
 alias setdots=". \$HOME/.local/bin/set-dotfiles.sh"
+alias wslup=". \$HOME/.local/bin/use-wslup.sh"
 
 # Files manipulation
 alias cp="cp -vi"
@@ -34,6 +39,7 @@ alias rm="rm -vI"
 alias sup="sudo apt update"
 alias supup="sudo apt update && sudo apt upgrade -y"
 alias brup="brew upgrade"
+alias lcoms="compgen -b"
 
 alias h="history"
 alias cls="clear"
