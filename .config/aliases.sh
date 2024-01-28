@@ -26,8 +26,8 @@ fi
 
 # To work with dotfiles in $HOME and setup scripts
 alias dot='git --git-dir="$HOME/.dotfiles" --work-tree="$HOME"'
-alias setdots=". \$HOME/.local/bin/set-dotfiles.sh"
-alias wslup=". \$HOME/.local/bin/use-wslup.sh"
+alias setdots=". \$HOME/.config/scripts/set-dotfiles.sh"
+alias wslup=". \$HOME/.config/scripts/use-wslup.sh"
 
 # Files manipulation
 alias cp="cp -vi"
@@ -35,7 +35,6 @@ alias mkdir="mkdir -vp"
 alias mv="mv -vi"
 alias rm="rm -vI"
 
-# Better built-in commands
 alias sup="sudo apt update"
 alias supup="sudo apt update && sudo apt upgrade -y"
 alias brup="brew upgrade"
@@ -50,7 +49,6 @@ alias ll="ls -al --color=always --group-directories-first"
 alias diff="diff --color=auto"
 alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
-
 alias fgrep="fgrep --color=auto"
 
 alias df="df -h"
@@ -81,7 +79,7 @@ alias pysetup="python3 -m venv .venv && source .venv/bin/activate"
 alias pysetreq="pip3 freeze > requirements.txt"
 alias pygetreq="pip3 install -r requirements.txt"
 alias pyup="source .venv/bin/activate"
-alias pydown="deactivate"
+alias pydw="deactivate"
 alias pipi="pip3 install --upgrade"
 alias pipuall="pip3 freeze --local | cut -d = -f 1  | xargs -n1 pip3 install --upgrade" # for upgrading all packages
 
