@@ -58,6 +58,7 @@ function get_apt_apps() {
     wget \
     python3-venv \
     python3-pip \
+    python3-tk \
     tree \
     jq \
     fzf \
