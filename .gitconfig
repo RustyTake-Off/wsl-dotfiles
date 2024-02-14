@@ -27,3 +27,15 @@
 
 [merge]
     log = true
+
+[alias]
+    i = init
+    cl = clone
+    s = status --short
+    a = add
+    c = commit
+    cm = commit -m
+    cam = commit -m --amend
+    pl = pull
+    pu = push
+    chb = checkout -b

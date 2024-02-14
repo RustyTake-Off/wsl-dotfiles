@@ -63,15 +63,15 @@ alias locip="sudo ifconfig | grep -Eo 'inet (addr:)?([0-9]*\\.){3}[0-9]*' | grep
 
 # Git
 alias g="git"
-alias gi="git init"
-alias gcl="git clone"
-alias gs="git status --short"
-alias ga="git add"
-alias gc="git commit"
-alias gcm="git commit -m"
-alias gpll="git pull"
-alias gpsh="git push"
-alias gchb="git checkout -b"
+# alias gi="git init"
+# alias gcl="git clone"
+# alias gs="git status --short"
+# alias ga="git add"
+# alias gc="git commit"
+# alias gcm="git commit -m"
+# alias gpll="git pull"
+# alias gpsh="git push"
+# alias gchb="git checkout -b"
 
 # Python
 alias py="python3"
@@ -80,10 +80,11 @@ alias pysetreq="pip3 freeze > requirements.txt"
 alias pygetreq="pip3 install -r requirements.txt"
 alias pyup="source .venv/bin/activate"
 alias pydw="deactivate"
-alias pipi="pip3 install --upgrade"
+alias pipi="pip3 install"
+alias pipu="pip3 install --upgrade"
 alias pipuall="pip3 freeze --local | cut -d = -f 1  | xargs -n1 pip3 install --upgrade" # for upgrading all packages
 
 # Misc
 alias k="kubectl"
-alias h="helm"
+alias hl="helm"
 alias tf="terraform"
