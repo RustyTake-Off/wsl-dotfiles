@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 # ╒══════╗        ╒═══════╗
 # │ ╓──┐ ║════════╗  ╓─┐  ║
 # │ ╚══╛ ║──┐  ╓──╜  ║ │  ║  RustyTake-Off
@@ -14,7 +13,7 @@
 export HISTSIZE=1000000
 export HISTFILESIZE=1000000
 export HISTTIMEFORMAT="%d-%m %H:%M:%S  "
-export HISTCONTROL=erasedups:ignoredups:ignorespace
+export HISTCONTROL=erasedups:ignorespace
 export HISTIGNORE="&:ls:la:ll:cd:exit:pwd:cls:[ ]*"
 export TERM="xterm-256color"
 export EDITOR="vim"
@@ -54,11 +53,7 @@ set -o emacs
 set -o hashall
 set -o histexpand
 set -o history
-set -o interactive-comments
 set -o monitor
-
-# PATH
-[ -d  "$HOME/.local/bin" ] && PATH="$PATH:$HOME/.local/bin"
 
 # Load other bash config files
 bash_config_files="aliases functions"
