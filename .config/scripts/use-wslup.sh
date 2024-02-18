@@ -11,25 +11,20 @@
 # Script file     -   "https://github.com/RustyTake-Off/wsl-dotfiles/blob/main/.local/bin/use-wslup.sh"
 
 # ================================================================================
-# Main variables
-
-# REPO_URL="https://github.com/RustyTake-Off/wsl-dotfiles.git"
-
-# ================================================================================
 # Miscellaneous code
 
 if [ ! -d "$HOME/pr" ]; then
-  command mkdir "$HOME/pr"
   echo "Creating 'personal' directory"
+  mkdir "$HOME/pr"
 fi
 
 if [ ! -d "$HOME/wk" ]; then
-  command mkdir "$HOME/wk"
   echo "Creating 'work' directory"
+  mkdir "$HOME/wk"
 fi
 
 # ================================================================================
-# Main functions
+# Main code
 
 function get_help() {
   # Help message
@@ -50,9 +45,8 @@ function get_apt_apps() {
   sudo apt install -y \
     apt-transport-https \
     build-essential \
-    ca-certificates \
     software-properties-common \
-    curl \
+    ca-certificates \
     gnupg \
     gpg \
     wget \
@@ -65,16 +59,16 @@ function get_apt_apps() {
     ripgrep \
     zoxide
 
-  # Install azure cli
-  if [ ! "$(command -v az)" ]; then
-    echo "Installing Azure cli..."
-    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+  # Install starship
+  if [ ! "$(command -v starship)" ]; then
+    echo "Installing Starship ..."
+    curl -sS https://starship.rs/install.sh | sudo bash
   fi
 
-  # Install azure developer cli
-  if [ ! "$(command -v azd)" ]; then
-    echo "Installing Azure Develope cli..."
-    curl -fsSL https://aka.ms/install-azd.sh | bash
+  # Install azure cli
+  if [ ! "$(command -v az)" ]; then
+    echo "Installing AzureCLI ..."
+    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
   fi
 }
 
@@ -82,7 +76,7 @@ function get_brew() {
   # Install homebrew if not installed
 
   if [ ! "$(command -v brew)" ]; then
-    echo "Installing Homebrew..."
+    echo "Installing Homebrew ..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   else
     echo "Homebrew is already installed!"
@@ -95,7 +89,7 @@ function get_brew_apps() {
   get-brew
 
   if [ ! "$(command -v brew)" ]; then
-    command brew install \
+    brew install \
       ansible \
       azcopy \
       kubectl \
@@ -113,10 +107,10 @@ function set_dotfiles() {
   # Invokes the Dotfiles setup script
 
   echo "Invoking Dotfiles setup script..."
-  if [ -x "$HOME/.local/bin/set-dotfiles.sh" ]; then
-    source "$HOME/.local/bin/set-dotfiles.sh"
+  if [ -x "$HOME/.config/scripts/set-dotfiles.sh" ]; then
+    source "$HOME/.config/scripts/set-dotfiles.sh"
   else
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/RustyTake-Off/wsl-dotfiles/main/.local/bin/set-dotfiles.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/RustyTake-Off/wsl-dotfiles/main/.config/scripts/set-dotfiles.sh)"
   fi
   echo "Invoke complete!"
 }
