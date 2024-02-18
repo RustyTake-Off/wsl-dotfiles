@@ -41,11 +41,22 @@ function extract() {
   done
 }
 
+function cpkeys() {
+  # Copy keys from Windows host directory
+  # Note: Use the same user name in WSL as in Windows
+
+  keys_path="/mnt/c/Users/$LOGNAME/.ssh"
+  find $keys_path -maxdepth 1 -type f -name '*.pub' | while read -r file; do
+    cp "$keys_path/$(basename "$file" .pub)" --target-directory "$HOME/.ssh"
+    cp "$keys_path/$(basename "$file")" --target-directory "$HOME/.ssh"
+  done
+}
+
 function permkeys() {
   # Removes read, write and execute permissions from group and others
 
   find "$HOME/.ssh" -maxdepth 1 -type f -name '*.pub' | while read -r file; do
-    keyname=$(basename "$file" .pub)
-    chmod go-rwx "$HOME/.ssh/$keyname"
+    chmod go-rwx "$HOME/.ssh/$(basename "$file" .pub)"
+    chmod go-rwx "$HOME/.ssh/$(basename "$file")"
   done
 }
