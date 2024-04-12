@@ -2,7 +2,7 @@
 # ╒══════╗        ╒═══════╗
 # │ ╓──┐ ║════════╗  ╓─┐  ║
 # │ ╚══╛ ║──┐  ╓──╜  ║ │  ║  RustyTake-Off
-# │ ╓─┐ ╔╝  │  ║  │  ║ │  ║  https://github.com/RustyTake-Off
+# │ ╓─┐ ╓╜  │  ║  │  ║ │  ║  https://github.com/RustyTake-Off
 # │ ║ │ ╚╗  │  ║  │  ╚═╛  ║
 # └─╜ └──╜  └──╜  └───────╜
 # Script for setting up WSL dotfiles.
